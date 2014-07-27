@@ -1,0 +1,48 @@
+\documentclass{ximera}
+%% handout
+%% nohints
+%% space
+%% newpage
+%% numbers
+
+\input{preamble.tex} %% we can turn off input when making a master document
+
+\outcome{Use an improper integral in an application problem.}
+\outcome{Integrate a force function to compute work.}
+\outcome{Correctly handle units during calculus operations.}
+
+\title{Escape Velocity}
+\begin{document}
+\begin{abstract}
+We start with Newton's law of gravitation and derive the escape velocity of a planet.
+\end{abstract}
+\maketitle
+
+A simplified version of Newton's Law is as follows. The force of gravity on an object of mass $m$ that is distance $r$ from the center of the earth is given by
+$$ F(r) = \frac{k m}{r^2}$$
+where $k$ is a constant that is a characteristic of the earth. In the metric system, the units of $k$ are $\frac{m^3}{s^2}$.
+
+\begin{question}
+Use the following two facts to find the value of k in $\frac{m^3}{s^2}$ to three significant digits. 
+\begin{itemize}
+\item A 100-kg object weighs 980 N at the surface of the Earth.
+\item The Earth's radius is 6400 km.
+\end{itemize}
+\begin{solution}
+\begin{multiple-choice}
+\choice{k = $4.01 \cdot 10^8 \frac{m^3}{s^2}$}
+\choice[correct]{k = $4.01 \cdot 10^{14} \frac{m^3}{s^2}$}
+\choice{k = $418 \frac{m^3}{s^2}$}
+\choice{k = $4.18 \cdot 10^8 \frac{m^3}{s^2}$}
+\end{multiple-choice}
+\begin{hint}
+The two facts from this question can be plugged into the law of gravity.
+\end{hint}
+\begin{hint}
+There is a problem with the units of the Earth's radius. Make sure you convert it to meters!
+\end{hint}
+Plugging in the values gives $980 N = \frac{k (100 kg)}{(6400000 m)^2}$, and so $k = 4.01 \cdot 10^{14} \frac{m^3}{s^2}$.
+\end{solution}
+\end{question}
+
+\end{document}
