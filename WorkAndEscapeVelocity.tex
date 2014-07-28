@@ -18,40 +18,6 @@ We start with Newton's law of gravitation and derive the escape velocity of a pl
 \end{abstract}
 \maketitle
 
-
-\begin{exercise}
-Let's find a function $f(x)$ so that $f(2) = 4$.
-
-\begin{solution}
-\begin{hint}
-Try a linear function.
-\end{hint}
-An example is $f(x) = $ \begin{expression-answer}
-  function validator(f) {
-
-    if (f.variables().indexOf('x') == -1) {
-      feedback( 'You should include an $x$ in your answer.' );
-    }
-
-    if (f.variables().length > 1) {
-      feedback( 'The only variable you should use is $x$.' );
-    }
-
-    if (Math.abs(f.evaluate( {x:2} ) - 4.0) < 0.0001) {
-      return 1;
-    }
-
-    feedback( 'Check what happens when you plug in $x=2$.' );
-
-    return 0;
-  }
-\end{expression-answer}.
-\end{solution}
-
-That is a great example.
-\end{exercise}
-
-
 \begin{observation}
 \textbf{Newton's Law of Gravitation.} The force of gravity on an object of mass $m$ that is distance $r$ from the center of the earth is given by
 $$ F(r) = \frac{G M m}{r^2}$$
