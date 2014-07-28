@@ -18,22 +18,27 @@ We start with Newton's law of gravitation and derive the escape velocity of a pl
 \end{abstract}
 \maketitle
 
-A simplified version of Newton's Law is as follows. The force of gravity on an object of mass $m$ that is distance $r$ from the center of the earth is given by
-$$ F(r) = \frac{k m}{r^2}$$
-where $k$ is a constant that is a characteristic of the earth. In the metric system, the units of $k$ are $\frac{m^3}{s^2}$.
+\begin{axiom}[Newton's Law of Gravitation]
+
+The force of gravity on an object of mass $m$ that is distance $r$ from the center of the earth is given by
+$$ F(r) = \frac{G M m}{r^2}$$
+where $G$ is the universal gravitational constant and M is the mass of the Earth. In the metric system, the units of $G M$ are $\frac{m^3}{s^2}$.
+\end{axiom}
+
+\textbf{Finding the value of $GM$}
 
 \begin{question}
-Use the following two facts to find the value of k in $\frac{m^3}{s^2}$ to three significant digits. 
+Use the following two facts to find the value of $GM$ in $\frac{m^3}{s^2}$ to three significant digits. 
 \begin{itemize}
 \item A 100-kg object weighs 980 N at the surface of the Earth.
 \item The Earth's radius is 6400 km.
 \end{itemize}
 \begin{solution}
 \begin{multiple-choice}
-\choice{k = $4.01 \cdot 10^8 \frac{m^3}{s^2}$}
-\choice[correct]{k = $4.01 \cdot 10^{14} \frac{m^3}{s^2}$}
-\choice{k = $418 \frac{m^3}{s^2}$}
-\choice{k = $4.18 \cdot 10^8 \frac{m^3}{s^2}$}
+\choice{G M = $4.01 \cdot 10^8 \frac{m^3}{s^2}$}
+\choice[correct]{G M = $4.01 \cdot 10^{14} \frac{m^3}{s^2}$}
+\choice{G M = $418 \frac{m^3}{s^2}$}
+\choice{G M = $4.18 \cdot 10^8 \frac{m^3}{s^2}$}
 \end{multiple-choice}
 \begin{hint}
 The two facts from this question can be plugged into the law of gravity.
@@ -41,8 +46,27 @@ The two facts from this question can be plugged into the law of gravity.
 \begin{hint}
 There is a problem with the units of the Earth's radius. Make sure you convert it to meters!
 \end{hint}
-Plugging in the values gives $980 N = \frac{k (100 kg)}{(6400000 m)^2}$, and so $k = 4.01 \cdot 10^{14} \frac{m^3}{s^2}$.
+Plugging in the values gives $980 N = \frac{GM (100 kg)}{(6400000 m)^2}$, and so $GM = 4.01 \cdot 10^{14} \frac{m^3}{s^2}$.
 \end{solution}
 \end{question}
+
+\textbf{Finding the value of $M$}
+
+\begin{question}
+The value of $G$ is $6.67 \cdot 10^-{11} \frac{m^3}{kg \cdot s^2}$. Find the mass of the Earth.
+\begin{solution}
+\begin{multiple-choice}
+\choice{M = $1.66 \cdot 10^{-25} kg$}
+\choice{M = $3.67 \cdot 10^{23} kg$}
+\choice[correct]{M = $6.01 \cdot 10^{24} kg$}
+\choice{k = $2.67 \cdot 10^4 kg$}
+\end{multiple-choice}
+\begin{hint}
+You found the value of $G M$ in the previous question, so you should now be able to find M by dividing.
+\end{hint}
+Dividing $G M$ by $G$ yields $6.01 \cdot 10^{24} kg$.
+\end{solution}
+\end{question}
+
 
 \end{document}
