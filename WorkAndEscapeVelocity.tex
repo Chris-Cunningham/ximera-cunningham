@@ -18,6 +18,39 @@ We start with Newton's law of gravitation and derive the escape velocity of a pl
 \end{abstract}
 \maketitle
 
+
+\begin{exercise}
+Let's find a function $f(x)$ so that $f(2) = 4$.
+
+\begin{solution}
+\begin{hint}
+Try a linear function.
+\end{hint}
+An example is $f(x) = $ \begin{expression-answer}
+  function validator(f) {
+    if (f.variables().indexOf('x') == -1) {
+      feedback( 'You should include an $x$ in your answer.' );
+    }
+
+    if (f.variables().length > 1) {
+      feedback( 'The only variable you should use is $x$.' );
+    }
+
+    if (abs(f.evaluate( {x:2} ) - 4.0) < 0.0001)
+      return 1;
+
+    alert(f.evaluate({x:2}));
+
+    feedback( 'Check what happens when you plug in $x=2$.' );
+    return 0;
+  }
+\end{expression-answer}.
+\end{solution}
+
+That is a great example.
+\end{exercise}
+
+
 \begin{observation}
 \textbf{Newton's Law of Gravitation.} The force of gravity on an object of mass $m$ that is distance $r$ from the center of the earth is given by
 $$ F(r) = \frac{G M m}{r^2}$$
@@ -44,7 +77,7 @@ $GM =$ \answer{$3.99 * 10^{14}$} $\frac{m^3}{s^2}$.
 \end{question}
 
 \begin{question}
-The value of $G$ is $6.67 \cdot 10^-{11} \frac{m^3}{kg \cdot s^2}$. Find the mass of the Earth in kilograms. Give 3 significant digits and use scientific notation.
+The value of $G$ is $6.67 \cdot 10^{-11} \frac{m^3}{kg \cdot s^2}$. Find the mass of the Earth in kilograms. Give 3 significant digits.
 \begin{solution}
 \begin{hint}
 You found the value of $G M$ in the previous question, so you should now be able to find M by dividing.
