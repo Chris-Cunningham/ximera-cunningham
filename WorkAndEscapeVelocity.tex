@@ -28,7 +28,6 @@ Try a linear function.
 \end{hint}
 An example is $f(x) = $ \begin{expression-answer}
   function validator(f) {
-    log(f.evaluate( {x:2} ));
 
     if (f.variables().indexOf('x') == -1) {
       feedback( 'You should include an $x$ in your answer.' );
@@ -38,7 +37,7 @@ An example is $f(x) = $ \begin{expression-answer}
       feedback( 'The only variable you should use is $x$.' );
     }
 
-    if (abs(f.evaluate( {x:2} ) - 4.0) < 0.0001) {
+    if (Math.abs(f.evaluate( {x:2} ) - 4.0) < 0.0001) {
       return 1;
     }
 
