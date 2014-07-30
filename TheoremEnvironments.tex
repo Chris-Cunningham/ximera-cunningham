@@ -26,12 +26,10 @@ Try 6112 meters! Be creative!
 \end{hint}
 An example is \begin{expression-answer}
 	
+	
 	function validator(f, g) {
-		// All quantity validators are the same. Give the correct answer and the tolerance for relative error.
-		quantityValidator(f, g, '3.7982 mi', 0.001)
-	}	
-
-	function quantityValidator(f, g,correctAnswer,tolerance) {
+		correctAnswer = '3.7982 mi';
+		tolerance = '0.001';
 		// f is a MathFunction which we will ignore; g is the plaintext the user typed. We also need the correct answer and the tolerance.		
 		try {
 			answer = Qty(g);
