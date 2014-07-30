@@ -13,6 +13,54 @@
 
 \title{Theorem Environments in LESS and CSS}
 
+\begin{exercise}
+Enter a distance that is equivalent to 3.7982 miles. Try kilometers and stuff!
+
+\begin{solution}
+\begin{hint}
+Try 6112 meters! Be creative!
+\end{hint}
+An example is $f(x) = $ \begin{expression-answer}
+	function validator(f) {			
+		// The correct answer and the tolerance are what we need... but they will come from somewhere
+		// else when you actually implement this correctly, so 
+		correctAnswer = '3.7982 mi'
+		tolerance = 0.001;
+		try {
+			answer = Quantities.Qty(f);
+			correctAnswer = Quantities.Qty(correctAnswer);   
+			// We can only check equality of units if they are the same unit kind.
+			if (answer.isCompatible(correctAnswer))
+			{
+				// Check if the answers are within a given precision. 
+				// Actually checking equality using toPrec is a floating-point nightmare.
+				// Instead find the relative error and ask for it to be below a certain tolerance.
+			    error = correctAnswer.sub(answer)		  			// Find the error by subtracting the values.
+			    relativeError = error.div(correctAnswer).toFloat()  // Find the relative error, as a scalar.
+				if (Math.abs(relativeError) < tolerance) {
+					feedback('Correct!')
+					return 1;
+				} else {
+					feedback('Incorrect!')
+					return 0;
+				}
+			} else {
+				feedback('The units of your answer are incompatible with the correct answer.')
+				return 0;
+			}
+		}
+		catch(e) {
+		  if(e instanceof Qty.Error) {
+		    feedback('The units of your answer are incompatible with the correct answer.')
+		  }
+		}
+	}
+\end{expression-answer}.
+\end{solution}
+
+
+
+
 \begin{theorem}Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pellentesque urna elit, in feugiat eros euismod quis. Quisque tempus pulvinar quam. In vehicula interdum pellentesque. Integer in hendrerit lacus, ut porttitor quam. Etiam quis imperdiet elit. Aenean risus augue, scelerisque nec dolor eu, adipiscing pharetra tortor. Etiam tincidunt erat nibh, sed congue libero condimentum in. Quisque consequat id ligula vel laoreet. Maecenas pulvinar sem et tempor consectetur. Etiam dui erat, gravida in imperdiet dictum, venenatis vitae massa. Etiam vitae sem sit amet arcu lobortis tristique. Duis vitae tellus at leo aliquet tempor. Mauris aliquet dictum sapien, ac ultrices lectus bibendum sed.\end{theorem}
 \begin{axiom}Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pellentesque urna elit, in feugiat eros euismod quis. Quisque tempus pulvinar quam. In vehicula interdum pellentesque. Integer in hendrerit lacus, ut porttitor quam. Etiam quis imperdiet elit. Aenean risus augue, scelerisque nec dolor eu, adipiscing pharetra tortor. Etiam tincidunt erat nibh, sed congue libero condimentum in. Quisque consequat id ligula vel laoreet. Maecenas pulvinar sem et tempor consectetur. Etiam dui erat, gravida in imperdiet dictum, venenatis vitae massa. Etiam vitae sem sit amet arcu lobortis tristique. Duis vitae tellus at leo aliquet tempor. Mauris aliquet dictum sapien, ac ultrices lectus bibendum sed.\end{axiom}
 \begin{conjecture}Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pellentesque urna elit, in feugiat eros euismod quis. Quisque tempus pulvinar quam. In vehicula interdum pellentesque. Integer in hendrerit lacus, ut porttitor quam. Etiam quis imperdiet elit. Aenean risus augue, scelerisque nec dolor eu, adipiscing pharetra tortor. Etiam tincidunt erat nibh, sed congue libero condimentum in. Quisque consequat id ligula vel laoreet. Maecenas pulvinar sem et tempor consectetur. Etiam dui erat, gravida in imperdiet dictum, venenatis vitae massa. Etiam vitae sem sit amet arcu lobortis tristique. Duis vitae tellus at leo aliquet tempor. Mauris aliquet dictum sapien, ac ultrices lectus bibendum sed.\end{conjecture}
