@@ -46,17 +46,17 @@ An example is \begin{expression-answer}
 					feedback('Correct!')
 					return 1;
 				} else {
-					feedback('Incorrect!')
+					feedback('Incorrect! But your answer had the correct unit type: '+answer.kind())
 					return 0;
 				}
 			} else {
-				feedback('The units of your answer are incompatible with the correct answer.')
+				feedback('The units of your answer were units of '+answer.kind()+', which is not the correct type.')
 				return 0;
 			}
 		}
 		catch(e) {
 		  if(e instanceof Qty.Error) {
-		    feedback('The units of your answer are incompatible with the correct answer.')
+		    feedback('Make sure your answer has some units before checking it!')
 		  }
 		}
 	}
