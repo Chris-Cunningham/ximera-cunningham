@@ -59,7 +59,7 @@ An example is \begin{expression-answer}
 		}
 		catch(e) {
 		  if(e instanceof Qty.Error) {
-			console.log('Error here!')
+			console.log(e)
 			feedback('We couldn\'t figure out those units. Make sure your answer has some units!')
 		  }
 		}
