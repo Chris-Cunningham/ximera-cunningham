@@ -25,13 +25,15 @@ Enter a distance that is equivalent to 3.7982 miles. Try kilometers and stuff!
 Try 6112 meters! Be creative!
 \end{hint}
 An example is \begin{expression-answer}
+	
 	function validator(f, g) {
-		// The correct answer and the tolerance are what we need... but they will come from somewhere
-		// else when you actually implement this correctly, so 
-		correctAnswer = '3.7982 mi';
-		tolerance = 0.001;
+		// All quantity validators are the same. Give the correct answer and the tolerance for relative error.
+		quantityValidator(f, g, '3.7982 mi', 0.001)
+	}	
+
+	function quantityValidator(f, g,correctAnswer,tolerance) {
+		// f is a MathFunction which we will ignore; g is the plaintext the user typed. We also need the correct answer and the tolerance.		
 		try {
-			// f is a MathFunction, g is the plaintext the user typed.
 			answer = Qty(g);
 			correctAnswer = Qty(correctAnswer);   
 			// We can only check equality of units if they are the same unit kind.
@@ -40,8 +42,8 @@ An example is \begin{expression-answer}
 				// Check if the answers are within a given precision. 
 				// Actually checking equality using toPrec is a floating-point nightmare.
 				// Instead find the relative error and ask for it to be below a certain tolerance.
-			    error = correctAnswer.sub(answer)		  			// Find the error by subtracting the values.
-			    relativeError = error.div(correctAnswer).toFloat()  // Find the relative error, as a scalar.
+				error = correctAnswer.sub(answer)		 	// Find the error by subtracting the values.
+				relativeError = error.div(correctAnswer).toFloat()  // Find the relative error, as a scalar.
 				if (Math.abs(relativeError) < tolerance) {
 					feedback('Correct!')
 					return 1;
@@ -60,6 +62,9 @@ An example is \begin{expression-answer}
 		  }
 		}
 	}
+
+	
+
 \end{expression-answer}.
 \end{solution}
 
