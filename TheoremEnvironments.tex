@@ -32,8 +32,8 @@ An example is \begin{expression-answer}
 		tolerance = 0.001;
 		try {
 			// f is a MathFunction, g is the plaintext the user typed.
-			answer = Quantities.Qty(g);
-			correctAnswer = Quantities.Qty(correctAnswer);   
+			answer = Qty(g);
+			correctAnswer = Qty(correctAnswer);   
 			// We can only check equality of units if they are the same unit kind.
 			if (answer.isCompatible(correctAnswer))
 			{
