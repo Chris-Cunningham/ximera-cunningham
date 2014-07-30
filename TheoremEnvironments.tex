@@ -24,6 +24,9 @@ Enter a distance that is equivalent to 3.7982 miles. Try kilometers and stuff!
 \begin{hint}
 Try 6112 meters! Be creative!
 \end{hint}
+\begin{hint}
+Try things like 14 m/s2 to try out the errors.
+\end{hint}
 An example is \begin{expression-answer}
 	
 	
@@ -50,13 +53,14 @@ An example is \begin{expression-answer}
 					return 0;
 				}
 			} else {
-				feedback('The units of your answer were units of '+answer.kind()+', which is not the correct type.')
+				feedback('The units of your answer are a type of '+answer.kind()+', which is not the correct type.')
 				return 0;
 			}
 		}
 		catch(e) {
 		  if(e instanceof Qty.Error) {
-		    feedback('Make sure your answer has some units before checking it!')
+			console.log(e)
+			feedback('We couldn't figure out those units. Make sure your answer has some units!')
 		  }
 		}
 	}
@@ -67,6 +71,10 @@ An example is \begin{expression-answer}
 \end{solution}
 
 \end{exercise}
+
+
+
+
 
 
 \begin{theorem}Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pellentesque urna elit, in feugiat eros euismod quis. Quisque tempus pulvinar quam. In vehicula interdum pellentesque. Integer in hendrerit lacus, ut porttitor quam. Etiam quis imperdiet elit. Aenean risus augue, scelerisque nec dolor eu, adipiscing pharetra tortor. Etiam tincidunt erat nibh, sed congue libero condimentum in. Quisque consequat id ligula vel laoreet. Maecenas pulvinar sem et tempor consectetur. Etiam dui erat, gravida in imperdiet dictum, venenatis vitae massa. Etiam vitae sem sit amet arcu lobortis tristique. Duis vitae tellus at leo aliquet tempor. Mauris aliquet dictum sapien, ac ultrices lectus bibendum sed.\end{theorem}
