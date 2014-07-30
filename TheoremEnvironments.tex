@@ -22,8 +22,38 @@ Try 6112 meters! Be creative!
 \end{hint}
 An example is \begin{expression-answer}
 	function validator(f) {
-		var a = Qty('5 mi');	
-		return 1;
+		// The correct answer and the tolerance are what we need... but they will come from somewhere
+		// else when you actually implement this correctly, so 
+		correctAnswer = '3.7982 mi';
+		tolerance = 0.001;
+		try {
+			answer = Quantities.Qty(f);
+			correctAnswer = Quantities.Qty(correctAnswer);   
+			// We can only check equality of units if they are the same unit kind.
+			if (answer.isCompatible(correctAnswer))
+			{
+				// Check if the answers are within a given precision. 
+				// Actually checking equality using toPrec is a floating-point nightmare.
+				// Instead find the relative error and ask for it to be below a certain tolerance.
+			    error = correctAnswer.sub(answer)		  			// Find the error by subtracting the values.
+			    relativeError = error.div(correctAnswer).toFloat()  // Find the relative error, as a scalar.
+				if (Math.abs(relativeError) < tolerance) {
+					feedback('Correct!')
+					return 1;
+				} else {
+					feedback('Incorrect!')
+					return 0;
+				}
+			} else {
+				feedback('The units of your answer are incompatible with the correct answer.')
+				return 0;
+			}
+		}
+		catch(e) {
+		  if(e instanceof Qty.Error) {
+		    feedback('The units of your answer are incompatible with the correct answer.')
+		  }
+		}
 	}
 \end{expression-answer}.
 \end{solution}
