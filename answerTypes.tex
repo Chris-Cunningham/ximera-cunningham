@@ -226,23 +226,33 @@ This is in code environment.
 This is on the fourth line.
 \end{code}
 
-If the code you are displaying is Python code, then the \verb!python! environment will actually execute the Python code on the web.
+If you are asking your students to write python code, for example trying to get them to type \verb!|return x**2!, you can use the \verb!python! environment and some validation functions.
 
 \begin{verbatim}
+\begin{question}
+Model the function $f(x) = x^2$ as a python function. Try using \verb|return x**2|
 \begin{python}
-a = 1
-a += 5
-print(a)
+  def f(x):
+  return #your code here
+
+  def validator():
+  return (f(4) == 16) and (f(-5) == 25)
 \end{python}
+\end{question}
 \end{verbatim}
 
 Produces:
 
+\begin{question}
+Model the function $f(x) = x^2$ as a python function. Try using \verb|return x**2|
 \begin{python}
-a = 1
-a += 5
-print(a)
+  def f(x):
+  return #your code here
+
+  def validator():
+  return (f(4) == 16) and (f(-5) == 25)
 \end{python}
+\end{question}
 
 
 \section{Problems and Structural Elements}
