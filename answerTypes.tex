@@ -8,34 +8,69 @@
 
 \maketitle
 
-Here are some of them.
+\section{Currently-Supported Environments and Commands (2015-07-28)}
+
+\begin{itemize}
+\item Basic Answer Types
+  \begin{itemize}
+    \item \verb!\answer!
+    \item (not documented) \verb!\answer[given]!
+    \item \verb!\answer[tolerance=]!
+    \item (broken) \verb!\matrixAnswer!    
+  \end{itemize}
+\item Multiple Choice Answer Types
+  \begin{itemize}
+    \item \verb!\begin{multipleChoice} ... \end{multipleChoice}!
+    \item (broken) \verb!\wordChoice!
+  \end{itemize}    
+\item Free Response Answers
+  \begin{itemize}   
+    \item (broken) \verb!\begin{freeResponse} ... \end{freeResponse}!
+  \end{itemize}
+\item Code Blocks
+  \begin{itemize}
+    \item (broken) \verb!\begin{code} ... \end{code}!
+    \item (broken) \verb!\begin{python} ... \end{python}!
+  \end{itemize}
+\item Problems and Structural Elements
+  \begin{itemize}
+    \item \verb!\begin{problem} ... \end{problem}!
+    \item \verb!\begin{question} ... \end{question}!
+    \item \verb!\begin{exercise} ... \end{exercise}!
+    \item \verb!\begin{exploration} ... \end{exploration}!
+    \item \verb!\begin{xarmaBoost} ... \end{xarmaBoost}!
+    \item \verb!\begin{example} ... \end{example}!
+  \end{itemize}
+\end{itemize}
 
 \section{Basic Answer Type}
 
 The following code produces a basic answer. In print, this displays the correct answer in an answer box. Online, this displays a blank space for the student to fill in the answer. 
 
 \begin{verbatim}
-         $3\times 2 = \answer{6}$
+\begin{question}
+$3\times 2 = \answer{6}$
+\end{question}
 \end{verbatim}
 
 Produces:
 
 \begin{question}
-  $3\times 2 = \answer{6}$
+$3\times 2 = \answer{6}$
 \end{question}
 
 In addition to numerical answers, we also support elementary functions.
 
 \begin{verbatim}
-    \begin{question}
-         $ \frac{\partial}{\partial x} x^2\sin(y) = \answer{2xsin(y)}$
-    \end{question}
+\begin{question}
+  $\frac{\partial}{\partial x} x^2\sin(y) = \answer{2xsin(y)}$
+\end{question}
 \end{verbatim}
 
 Produces:
 
 \begin{question}
-  $ \frac{\partial}{\partial x} x^2\sin(y) = \answer{2xsin(y)}$
+  $\frac{\partial}{\partial x} x^2\sin(y) = \answer{2xsin(y)}$
 \end{question}
 
 \begin{remark}
@@ -53,21 +88,21 @@ Setting the tolerance to 0 will force exact comparison of floating-point numbers
 \end{warning}
 
 \begin{verbatim}
-    \begin{question}
-         Write a number that is within 0.01 of 8: \answer{8}
-    \end{question}
-    \begin{question}
-         Write a number that is within 5 of 8: \answer[tolerance=5]{8}
-    \end{question}
+\begin{question}
+  Write a number that is within 0.01 of 8: \answer{8}
+\end{question}
+\begin{question}
+  Write a number that is within 5 of 8: \answer[tolerance=5]{8}
+\end{question}
 \end{verbatim}
 
 Produces:
 
 \begin{question}
-     Write a number that is within 0.01 of 8: $\answer{8}$
+  Write a number that is within 0.01 of 8: $\answer{8}$
 \end{question}
 \begin{question}
-     Write a number that is within 5 of 8: $\answer{8}$  \emph{broken as of 7/28/2015:} the ximera class file does not know about tolerance yet.
+  Write a number that is within 5 of 8: $\answer{8}$  \emph{broken as of 7/28/2015:} the ximera class file does not know about tolerance yet.
 \end{question}
 
 We also support matrices of expressions in answers.
@@ -84,7 +119,7 @@ Enter the matrix  \(\begin{bmatrix} x & y \\ xy & z+1 \end{bmatrix}\)
 \emph{broken as of 7/28/2015:} This should eventually convert to a +/- matrix answer widget.
 
 \begin{question}
-  Enter the matrix  \(\begin{bmatrix} x & y \\ xy & z+1 \end{bmatrix}\)
+Enter the matrix  \(\begin{bmatrix} x & y \\ xy & z+1 \end{bmatrix}\)
 \begin{matrixAnswer}
     correctMatrix = [['x','y'],['xy','z+1']]
 \end{matrixAnswer}
@@ -134,42 +169,83 @@ Produces:
 
 \begin{question}
   When comparing the functions $f(x) = x^2$ and $g(x) = 2^x$, \wordChoice{\choice{$f(x)$} \choice[correct]{$g(x)$}} grows more quickly for large $x$.
+  \emph{broken as of 7/28/2015:} the web does not understand wordChoice yet at all.
 \end{question}
-
-
 
 \section{Free-Response Answer Type}
 
 The free response environment gives students access to a \LaTeX\ editor. 
 
 \begin{verbatim}
-  \begin{question}
-    Tell us a little about yourself!
-    \begin{freeResponse}
-        My name is Professor X. I am 42 years old, originally from Columbus, OH. The most recent 
-        math I learned was functional analysis, three years ago. My favorite ice cream is Superman. 
-        My favorite function is $f(x) = e^{-x^2}$.
-    \end{freeResponse}
-  \end{question}
+\begin{question}
+  Tell us a little about yourself!
+  \begin{freeResponse}
+      My name is Professor X. I am 42 years old, originally from Columbus, OH. The most recent 
+      math I learned was functional analysis, three years ago. My favorite ice cream is Superman. 
+      My favorite function is $f(x) = e^{-x^2}$.
+  \end{freeResponse}
+\end{question}
 \end{verbatim}
 
 Produces:
 
-  \begin{question}
-    Tell us a little about yourself!
-    \begin{freeResponse}
-        My name is Professor X. I am 42 years old, originally from Columbus, OH. The most recent 
-        math I learned was functional analysis, three years ago. My favorite ice cream is Superman. 
-        My favorite function is $f(x) = e^{-x^2}.$
-    \end{freeResponse}
-  \end{question}
+\begin{question}
+  Tell us a little about yourself!
+  \begin{freeResponse}
+      My name is Professor X. I am 42 years old, originally from Columbus, OH. The most recent 
+      math I learned was functional analysis, three years ago. My favorite ice cream is Superman. 
+      My favorite function is $f(x) = e^{-x^2}.$
+  \end{freeResponse}
+\end{question}
 
 \begin{remark}
 Clicking on \verb!View model solution! shows the user
 whatever you typed in the  \verb!freeResponse! environment.
 \end{remark}
 
-\section{Examples}
+
+\section{Code}
+
+If you are displaying computer code to the student, you can use the \verb!code! or \verb!python! environments.
+
+\begin{verbatim}
+\begin{code}
+This is in code environment.
+    This is indented on the second line.
+
+This is on the fourth line.
+\end{code}
+\end{verbatim}
+
+Produces:
+
+\begin{code}
+This is in code environment.
+    This is indented on the second line.
+
+This is on the fourth line.
+\end{code}
+
+If the code you are displaying is Python code, then the \verb!python! environment will actually execute the Python code on the web.
+
+\begin{verbatim}
+\begin{python}
+a = 1
+a += 5
+print(a)
+\end{python}
+\end{verbatim}
+
+Produces:
+
+\begin{python}
+a = 1
+a += 5
+print(a)
+\end{python}
+
+
+\section{Problems and Structural Elements}
 
 \begin{example}
 This is an example.
@@ -177,6 +253,23 @@ This is an example.
 \begin{explanation}
 This is an explanation.
 \end{explanation}
+\begin{xarmaBoost}
+A problem worth Xarma.
+\end{xarmaBoost}
+\begin{question}
+This is a question?
+\end{question}
+\begin{problem}
+This is a problem.
+\end{problem}
+\begin{exercise}
+This is an exercise.
+\end{exercise}
+\begin{exploration}
+This is an exploration. Yay!
+\end{exploration}
+
+
 
 \section{Prompt}
 
@@ -184,28 +277,7 @@ This is an explanation.
 This is a prompt.
 \end{prompt}
 
-\section{Code}
 
-\begin{code}
-This is in code environment.
-This is on the second line.
-This is on the third line.
-\end{code}
-
-\begin{python}
-This is in a python environment.
-This is on the second line.
-This is on the third line.
-\end{python}
-
-\section{Parts}
-
-The parts environment should be removed.
-
-\begin{parts} %this will be deprecated
-\item Part 1
-\item Part 2
-\end{parts}
 
 \section{Shuffle}
 
@@ -216,25 +288,6 @@ This is a shuffle environment. What goes here?
 \end{shuffle}
 
 
-
-\section{Solution}
-
-The solution environment should be removed.
-
-\begin{solution} %this will be deprecated
-What is this?
-\end{solution}
-
-\section{Interactive}
-
-We need to figure out what the interactive environment does.
-
-\begin{interactive}
-What is this?
-\end{interactive}
-
-
-
 \section{Feedback}
 
 We need to figure out what the feedback environment does.
@@ -242,8 +295,6 @@ We need to figure out what the feedback environment does.
 \begin{feedback}
 What is this?
 \end{feedback}
-
-
 
 \section{Dialogue}
 
@@ -253,8 +304,6 @@ Dialogue is working as intended:
 \item[Nathan] What is this?
 \item[Hans] This is for showing a conversation.
 \end{dialogue}
-
-
 
 \section{Theorems}
 
@@ -295,24 +344,5 @@ There is some metadata here. (prerequisites, outcomes to be figured out later)
 
 \section{Problem Types}
 
-\begin{xarmaBoost}
-A problem worth Xarma.
-\end{xarmaBoost}
-
-\begin{question}
-This is a question?
-\end{question}
-
-\begin{problem}
-This is a problem.
-\end{problem}
-
-\begin{exercise}
-This is an exercise.
-\end{exercise}
-
-\begin{exploration}
-This is an exploration. Yay!
-\end{exploration}
 
 \end{document}
