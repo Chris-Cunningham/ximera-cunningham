@@ -122,6 +122,22 @@ Produces:
 \end{question}
 
 
+If you would like the multiple-choice question to occur in-line instead of taking up space, you can use the inline command \verb!wordChoice!.
+ 
+\begin{verbatim}
+\begin{question}
+  When comparing the functions $f(x) = x^2$ and $g(x) = 2^x$, \wordChoice{\choice{$f(x)$} \choice[correct]{$g(x)$}} grows more quickly for large $x$.
+\end{question}
+\end{verbatim}
+
+Produces:
+
+\begin{question}
+  When comparing the functions $f(x) = x^2$ and $g(x) = 2^x$, \wordChoice{\choice{$f(x)$} \choice[correct]{$g(x)$}} grows more quickly for large $x$.
+\end{question}
+
+
+
 \section{Free-Response Answer Type}
 
 The free response environment gives students access to a \LaTeX\ editor. 
@@ -153,7 +169,7 @@ Clicking on \verb!View model solution! shows the user
 whatever you typed in the  \verb!freeResponse! environment.
 \end{remark}
 
-\section{Example}
+\section{Examples}
 
 \begin{example}
 This is an example.
@@ -246,21 +262,12 @@ Dialogue is working as intended:
 What is this? (there are other theorems)
 \end{theorem}
 
-<<<<<<< HEAD
 Maybe we want to list the other theorems?
 =======
 \begin{lemma}
 This is a lemma.
 \end{lemma}
->>>>>>> origin/master
 
-
-
-\section{Word Choice}
-
-We need to figure out how word choice works!
-
-%% \wordChoice[wrong1, wrong2]{right}
 
 
 \section{Linking}
