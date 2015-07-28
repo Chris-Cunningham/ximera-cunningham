@@ -3,30 +3,28 @@
 \begin{document}
 
 \begin{abstract}
-  This activity explores the environments and commands supported by ximera. 
+  This activity explores the answer types and environments supported by ximera.
 \end{abstract}
 
 \maketitle
 
 Here are some of them.
 
+\section{Basic Answer Type}
 
-\section{Basic Function Answer Type}
-
-Verbatim environments look worse:
+The following code produces a basic answer. In print, this displays the correct answer in an answer box. Online, this displays a blank space for the student to fill in the answer. 
 
 \begin{verbatim}
          $3\times 2 = $ \answer{6}
 \end{verbatim}
 
-But this code should produce a question with an answer box:
+Produces:
 
 \begin{question}
   $3\times 2 = $ \answer{6}
 \end{question}
 
-
-In addition to numerical answers, we also support elementary functions:
+In addition to numerical answers, we also support elementary functions.
 
 \begin{verbatim}
     \begin{question}
@@ -40,8 +38,6 @@ Produces:
   $ \frac{\partial}{\partial x} x^2\sin(y) = $ \answer{2xsin(y)}
 \end{question}
 
-Remarks are working well (one of many theorem types):
-
 \begin{remark}
 Under the hood, Ximera is parsing the user input, producing a
 function, and checking the user input function against ``answer'' at
@@ -49,6 +45,30 @@ $100$ different complex numbers, and seeing if the results are
 ``reasonably'' close to each other.  We compare the complex extensions
 of these functions to circumvent domain issues.
 \end{remark}
+
+If you would like to allow more tolerance, you can use the \verb!tolerance! option. 
+
+\begin{warning}
+Setting the tolerance to 0 will force exact comparison of floating-point numbers, which will likely cause unexpected problems. This is strongly discouraged. 
+\end{warning}
+
+\begin{verbatim}
+    \begin{question}
+         Write a number that is within 0.01 of 8: \answer{8}
+    \end{question}
+    \begin{question}
+         Write a number that is within 5 of 8: \answer[tolerance=5]{8}
+    \end{question}
+\end{verbatim}
+
+Produces:
+
+\begin{question}
+     Write a number that is within 0.01 of 8: \answer{8}
+\end{question}
+\begin{question}
+     Write a number that is within 5 of 8: \answer{8}  \emph{broken as of 7/28/2015:} the ximera class file does not know about tolerance yet.
+\end{question}
 
 We also support matrices of expressions in answers.
 
@@ -61,14 +81,13 @@ Enter the matrix  \(\begin{bmatrix} x & y \\ xy & z+1 \end{bmatrix}\)
 \end{question}
 \end{verbatim}
 
-This should eventually convert to a +/- matrix answer widget.
+\emph{broken as of 7/28/2015:} This should eventually convert to a +/- matrix answer widget.
 
 \begin{question}
   Enter the matrix  \(\begin{bmatrix} x & y \\ xy & z+1 \end{bmatrix}\)
 \begin{matrixAnswer}
     correctMatrix = [['x','y'],['xy','z+1']]
 \end{matrixAnswer}
-   % This doesn't seem to compile?
 \end{question}
 
 \begin{remark}
@@ -76,8 +95,9 @@ This should eventually convert to a +/- matrix answer widget.
 \end{remark}
 
 
-
 \section{Multiple Choice Answer Type}
+
+Multiple-choice questions need one or more of their answers to be labeled as correct. By default, the options always appear in the same order.
 
 \begin{verbatim}
 \begin{question}
@@ -90,7 +110,7 @@ Which of the following functions has a graph which is a parabola?
 \end{question}
 \end{verbatim}
 
-Multiple choice questions seem to be working:
+Produces:
 
 \begin{question}
   Which of the following functions has a graph which is a parabola?
@@ -101,21 +121,32 @@ Multiple choice questions seem to be working:
   \end{multipleChoice}
 \end{question}
 
-\begin{remark}
-  Multiple choice questions are automatically shuffled!!
-\end{remark}
 
-
-
-\section{Free-response}
+\section{Free-Response Answer Type}
 
 The free response environment gives students access to a \LaTeX\ editor. 
 
-Free response does not work as intended:
+\begin{verbatim}
+  \begin{question}
+    Tell us a little about yourself!
+    \begin{freeResponse}
+        My name is Professor X. I am 42 years old, originally from Columbus, OH. The most recent 
+        math I learned was functional analysis, three years ago. My favorite ice cream is Superman. 
+        My favorite function is $f(x) = e^{-x^2}$.
+    \end{freeResponse}
+  \end{question}
+\end{verbatim}
 
-\begin{freeResponse}
-  This is the model solution.
-\end{freeResponse}
+Produces:
+
+  \begin{question}
+    Tell us a little about yourself!
+    \begin{freeResponse}
+        My name is Professor X. I am 42 years old, originally from Columbus, OH. The most recent 
+        math I learned was functional analysis, three years ago. My favorite ice cream is Superman. 
+        My favorite function is $f(x) = e^{-x^2}$.
+    \end{freeResponse}
+  \end{question}
 
 \begin{remark}
 Clicking on \verb!View model solution! shows the user
