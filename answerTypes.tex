@@ -32,14 +32,13 @@
     \item (broken) \verb!\begin{code} ... \end{code}!
     \item (broken) \verb!\begin{python} ... \end{python}!
   \end{itemize}
-\item Problems and Structural Elements
+\item Problems and Exercises
   \begin{itemize}
     \item \verb!\begin{problem} ... \end{problem}!
     \item \verb!\begin{question} ... \end{question}!
     \item \verb!\begin{exercise} ... \end{exercise}!
     \item \verb!\begin{exploration} ... \end{exploration}!
     \item \verb!\begin{xarmaBoost} ... \end{xarmaBoost}!
-    \item \verb!\begin{example} ... \end{example}!
   \end{itemize}
 \end{itemize}
 
@@ -255,29 +254,34 @@ Model the function $f(x) = x^2$ as a python function. Try using \verb|return x**
 \end{question}
 
 
-\section{Problems and Structural Elements}
 
-\begin{example}
-This is an example.
-\end{example}
-\begin{explanation}
-This is an explanation.
-\end{explanation}
-\begin{xarmaBoost}
-A problem worth Xarma.
-\end{xarmaBoost}
+\section{Problem Containers}
+
+The environments \verb!problem!, \verb!question!, \verb!exercise!, \verb!exploration!, and \verb!xarmaBoost! are intended to contain various answer types inside. Most of the above examples involve question or problem environments. Nesting these environments will cause a series of questions to appear, requiring you to answer the first before answering the second.
+
+\begin{verbatim}
 \begin{question}
-This is a question?
+  $2+2 = \answer{4}$
+  \begin{problem}
+  If we add 2 to the result, we get $\answer{6}$
+  \end{problem}
 \end{question}
-\begin{problem}
-This is a problem.
-\end{problem}
-\begin{exercise}
-This is an exercise.
-\end{exercise}
-\begin{exploration}
-This is an exploration. Yay!
-\end{exploration}
+\end{verbatim}
+
+Produces:
+
+\begin{question}
+  $2+2 = \answer{4}$
+  \begin{problem}
+  If we add 2 to the result, we get $\answer{6}$
+  \end{problem}
+\end{question}
+
+
+\section{Structure}
+
+
+\verb!example!, \verb!explanation!
 
 
 
