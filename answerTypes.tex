@@ -330,7 +330,7 @@ The functions $f(x) = \frac{x}{1+x^3}$ and $g(x) = 0$ bound a region in the firs
 
 \section{Prompt} \label{Prompts}
 
-\begin{example} If you would like to prompt a student online but not in your handouts, you can use the \verb!prompt! command. Prompts display on the web but do not display when the document class is called with a \verb!handout! class key. This allows you to demand certain formats for answers that will be checked online, while leaving more freedom for the answer format in person.
+\begin{example} If you would like to prompt a student online but not in your handouts, you can use the \verb!prompt! command. Prompts display on the web but do not display when the document class is called with a \verb!handout! class key. This allows you to demand certain formats for answers that will be checked online, while leaving more freedom for the answer format in person. The prompt command does nothing online.
 
 \begin{verbatim}
 Find an equation for a line that has slope 5 and passes through the point (4, 6). 
@@ -348,12 +348,34 @@ Find an equation for a line that has slope 5 and passes through the point (4, 6)
 
 \section{Shuffle}
 
-We need to figure out what the shuffle environment does.
+\begin{example} The \verb!shuffle! environment contains several possible questions. Each student will be given one of the questions from the list.
 
+\begin{verbatim}
 \begin{shuffle}
-This is a shuffle environment. What goes here?
+\begin{question} Find the x-coordinate of the vertex of the parabola $y = x^2 - 6x + 4$. 
+$x = \answer{3}$. \end{question}
+
+\begin{question} Find the x-coordinate of the vertex of the parabola $y = x^2 - 8x + 4$. 
+$x = \answer{4}$. \end{question}
+
+\begin{question} Find the x-coordinate of the vertex of the parabola $y = x^2 - 2x + 4$. 
+$x = \answer{1}$. \end{question}
+\end{shuffle}
+\end{verbatim}
+
+Produces:
+\begin{shuffle}
+\begin{question} Find the x-coordinate of the vertex of the parabola $y = x^2 - 6x + 4$. 
+$x = \answer{3}$. \end{question}
+
+\begin{question} Find the x-coordinate of the vertex of the parabola $y = x^2 - 8x + 4$. 
+$x = \answer{4}$. \end{question}
+
+\begin{question} Find the x-coordinate of the vertex of the parabola $y = x^2 - 2x + 4$. 
+$x = \answer{1}$. \end{question}
 \end{shuffle}
 
+\end{example}
 
 \section{Feedback}
 
