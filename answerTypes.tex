@@ -44,6 +44,12 @@
     \item begin\{exploration\} ... end\{exploration\}
     \item begin\{xarmaBoost\} ... end\{xarmaBoost\}
   \end{itemize}
+\item \hyperref[StructuralEnvironments]{Structure}
+  \begin{itemize}
+    \item \textbackslash example
+    \item \textbackslash explanation
+  \end{itemize}
+
 \end{itemize}
 
 \end{remark}
@@ -224,6 +230,7 @@ whatever you typed in the  \verb!freeResponse! environment.
 
 \section{Code} \label{CodeAnswers}
 
+\begin{example}
 If you are displaying computer code to the student, you can use the \verb!code! or \verb!python! environments.
 
 \begin{verbatim}
@@ -243,7 +250,9 @@ This is in code environment.
 
 This is on the fourth line.
 \end{code}
+\end{example}
 
+\begin{example}
 If you are asking your students to write python code, for example trying to get them to type \verb!|return x**2!, you can use the \verb!python! environment and some validation functions.
 
 \begin{verbatim}
@@ -271,11 +280,12 @@ Model the function $f(x) = x^2$ as a python function. Try using \verb|return x**
   return (f(4) == 16) and (f(-5) == 25)
 \end{python}
 \end{question}
-
+\end{example}
 
 
 \section{Problem Containers} \label{ProblemContainers}
 
+\begin{example}
 The environments \verb!problem!, \verb!question!, \verb!exercise!, \verb!exploration!, and \verb!xarmaBoost! are intended to contain various answer types inside. Most of the above examples involve question or problem environments. Nesting these environments will cause a series of questions to appear, requiring you to answer the first before answering the second.
 
 \begin{verbatim}
@@ -299,22 +309,40 @@ Produces:
 \begin{remark} 
 The original intent of xarmaBoost was to label questions that were unlikely to be graded, but might just let the student do something interesting. Now, though, any of these question environments can actually contain many answer commands or none.
 \end{remark}
+\end{example}
 
-\section{Structure}
+\section{Structure} \label{StructuralEnvironments}
 
+\begin{example}
+The \verb!example! and \verb!explanation! environments serve as containers with nice labels. 
 
+\begin{verbatim}
+\begin{example}
+The functions $f(x) = \frac{x}{1+x^3}$ and $g(x) = 0$ bound a region in the first quadrant that has finite area, but has no center of mass. 
+\end{example}
+\end{verbatim}
 
-\verb!example!, \verb!explanation!
+Produces:
+\begin{example}
+The functions $f(x) = \frac{x}{1+x^3}$ and $g(x) = 0$ bound a region in the first quadrant that has finite area, but has no center of mass. 
+\end{example}
+\end{example}
 
+\section{Prompt} \label{Prompts}
 
+\begin{example} If you would like to prompt a student online but not in your handouts, you can use the \verb!prompt! command. Prompts display on the web but do not display when the document class is called with a \verb!handout! class key. This allows you to demand certain formats for answers that will be checked online, while leaving more freedom for the answer format in person.
 
-\section{Prompt}
+\begin{verbatim}
+Find an equation for a line that has slope 5 and passes through the point (4, 6). 
+\begin{prompt} y = \end{prompt} \answer{5x - 14}
+\end{verbatim}
 
-\begin{prompt}
-This is a prompt.
-\end{prompt}
+Produces:
 
+Find an equation for a line that has slope 5 and passes through the point (4, 6). 
+\begin{prompt} y = \end{prompt} \answer{5x - 14}
 
+\end{example}
 
 \section{Shuffle}
 
