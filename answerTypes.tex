@@ -10,34 +10,25 @@
 
 \maketitle
 
-\section{Currently-Supported Environments and Commands (2015-07-29)!}
+\section{Currently-Supported Environments and Commands (2015-07-29)}
 
 \begin{remark} Table of Contents
 
 \begin{itemize}
-\item \emph{\hyperref[BasicAnswerType]{Basic Answer Types}}
+\item \hyperref[BasicAnswerType]{\textbf{Basic Answer Types}}
   \begin{itemize}
     \item (broken in print) answer
     \item (not documented) answer[given]
     \item answer[tolerance=]
     \item (ugly in print, broken online) \textbackslash matrixAnswer  
   \end{itemize}
-\item \hyperref[MCAnswerType]{Multiple Choice Answer Types}
+\item \hyperref[MCAnswerType]{\textbf{Multiple Choice Answer Types}}
   \begin{itemize}
     \item begin\{multipleChoice\} ... end\{multipleChoice\}
     \item (broken online) begin\{selectAll\} ... end\{selectAll\}
     \item (broken online) \textbackslash wordChoice
   \end{itemize}    
-\item \hyperref[FRAnswerType]{Free Response}
-  \begin{itemize}   
-    \item (broken online) begin\{freeResponse\} ... end\{freeResponse\}
-  \end{itemize}
-\item \hyperref[CodeAnswers]{Code Blocks}
-  \begin{itemize}
-    \item (ugly online) begin\{code\} ... end\{code\}
-    \item (broken in print, broken online) begin\{python\} ... end\{python\}
-  \end{itemize}
-\item \hyperref[ProblemContainers]{Problems, Exercises, and Hints}
+\item \hyperref[ProblemContainers]{\textbf{Problems, Exercises, and Hints}}
   \begin{itemize}
     \item begin\{problem\} ... end\{problem\}
     \item begin\{question\} ... end\{question\}
@@ -48,33 +39,42 @@
     \item (broken online) begin\{feedback\} ... end\{feedback\}
     \item begin\{hint\} ... end\{hint\}
   \end{itemize}
-\item \hyperref[StructuralEnvironments]{Structure}
-  \begin{itemize}
-    \item example
-    \item explanation
-  \end{itemize}
-\item \hyperref[Prompt]{Prompts}
-  \begin{itemize}
-    \item begin\{prompt\} ... end \{prompt\}
-  \end{itemize}
-\item \hyperref[Dialogue]{Dialogues}
-  \begin{itemize}
-    \item begin \{dialogue\} ... end\{dialogue\}
-  \end{itemize}
-\item \hyperref[TheoremEnvironments]{Theorem Environments}
+\item \hyperref[TheoremEnvironments]{\textbf{Theorem Environments}}
   \begin{itemize}
     \item Theorem, Axiom, Conjecture, Corollary, Proposition, Lemma, Claim, Condition, Idea, Definition, Conclusion, Summary
     \item Example, Observation, Fact, Remark, Algorithm, Notation, Criterion
     \item Warning, Paradox
   \end{itemize}
-\item \hyperref[EmbeddedContent]{Embedded Content}
+\item \hyperref[EmbeddedContent]{\textbf{Embedded Content}}
   \begin{itemize}
     \item link
     \item youtube
     \item geogebra
     \item (broken in print, broken online) html
   \end{itemize}
-\item \hyperref[Metadata]{Metadata}
+\item \hyperref[CodeAnswers]{\textbf{Code Blocks}}
+  \begin{itemize}
+    \item (ugly online) begin\{code\} ... end\{code\}
+    \item (broken in print, broken online) begin\{python\} ... end\{python\}
+  \end{itemize}
+\item \hyperref[FRAnswerType]{\textbf{Free Response}}
+  \begin{itemize}   
+    \item (broken online) begin\{freeResponse\} ... end\{freeResponse\}
+  \end{itemize}
+\item \hyperref[StructuralEnvironments]{\textbf{Miscellaneous Structure}}
+  \begin{itemize}
+    \item example
+    \item explanation
+  \end{itemize}
+\item \hyperref[Prompts]{\textbf{Prompts}}
+  \begin{itemize}
+    \item begin\{prompt\} ... end \{prompt\}
+  \end{itemize}
+\item \hyperref[Dialogue]{\textbf{Dialogues}}
+  \begin{itemize}
+    \item begin \{dialogue\} ... end\{dialogue\}
+  \end{itemize}
+\item \hyperref[Metadata]{\textbf{Metadata}}
   \begin{itemize}
     \item (broken in print, broken online) outcome
   \end{itemize}
@@ -180,7 +180,7 @@ Enter the matrix  \(\begin{bmatrix} x & y \\ xy & z+1 \end{bmatrix}\)
 \end{remark}
 \end{example}
 
-\section{Multiple Choice Answer Type} \label{MCAnswerType}
+\section{Multiple Choice Answer Types} \label{MCAnswerType}
 
 \begin{example}
 Multiple-choice questions need one or more of their answers to be labeled as \verb!correct!. By default, the options always appear in the same order.
@@ -257,94 +257,7 @@ Produces:
 \end{question}
 \end{example}
 
-\section{Free-Response Answer Type} \label{FRAnswerType}
-
-\begin{example}The free response environment gives students access to a \LaTeX\ editor. 
-
-\begin{verbatim}
-\begin{question}
-  Tell us a little about yourself!
-  \begin{freeResponse}
-      My name is Professor X. I am 42 years old, originally from Columbus, OH. The most recent 
-      math I learned was functional analysis, three years ago. My favorite ice cream is Superman. 
-      My favorite function is $f(x) = e^{-x^2}$.
-  \end{freeResponse}
-\end{question}
-\end{verbatim}
-
-Produces:
-
-\begin{question}
-  Tell us a little about yourself!
-  \begin{freeResponse}
-      My name is Professor X. I am 42 years old, originally from Columbus, OH. The most recent 
-      math I learned was functional analysis, three years ago. My favorite ice cream is Superman. 
-      My favorite function is $f(x) = e^{-x^2}.$
-  \end{freeResponse}
-\end{question}
-
-\begin{remark}
-Clicking on \verb!View model solution! shows the user
-whatever you typed in the  \verb!freeResponse! environment.
-\end{remark}
-\end{example}
-
-\section{Code} \label{CodeAnswers}
-
-\begin{example}
-If you are displaying computer code to the student, you can use the \verb!code! or \verb!python! environments.
-
-\begin{verbatim}
-\begin{code}
-This is in code environment.
-    This is indented on the second line.
-
-This is on the fourth line.
-\end{code}
-\end{verbatim}
-
-Produces:
-
-\begin{code}
-This is in code environment.
-    This is indented on the second line.
-
-This is on the fourth line.
-\end{code}
-\end{example}
-
-\begin{example}
-If you are asking your students to write python code, for example trying to get them to type \verb!|return x**2!, you can use the \verb!python! environment and some validation functions.
-
-\begin{verbatim}
-\begin{question}
-Model the function $f(x) = x^2$ as a python function. Try using \verb|return x**2|
-\begin{python}
-  def f(x):
-  return #your code here
-
-  def validator():
-  return (f(4) == 16) and (f(-5) == 25)
-\end{python}
-\end{question}
-\end{verbatim}
-
-Produces:
-
-\begin{question}
-Model the function $f(x) = x^2$ as a python function. Try using \verb|return x**2|
-\begin{python}
-  def f(x):
-  return #your code here
-
-  def validator():
-  return (f(4) == 16) and (f(-5) == 25)
-\end{python}
-\end{question}
-\end{example}
-
-
-\section{Problem Containers} \label{ProblemContainers}
+\section{Problems, Exercises, and Hints} \label{ProblemContainers}
 
 \begin{example}
 The environments \verb!problem!, \verb!question!, \verb!exercise!, \verb!exploration!, and \verb!xarmaBoost! are intended to contain various answer types inside. Nesting these environments will cause a series of questions to appear, requiring you to answer the first before answering the second. The following code displays nested problems.
@@ -449,67 +362,6 @@ Produces:
 
 \end{example}
 
-\section{Structure} \label{StructuralEnvironments}
-
-\begin{example}
-The \verb!example! and \verb!explanation! environments serve as containers with nice labels. 
-
-\begin{verbatim}
-\begin{example}
-The functions $f(x) = \frac{x}{1+x^3}$ and $g(x) = 0$ bound a region in the first quadrant that has finite area, but has no center of mass. 
-\end{example}
-\end{verbatim}
-
-Produces:
-\begin{example}
-The functions $f(x) = \frac{x}{1+x^3}$ and $g(x) = 0$ bound a region in the first quadrant that has finite area, but has no center of mass. 
-\end{example}
-\end{example}
-
-\section{Prompt} \label{Prompts}
-
-\begin{example} If you would like to prompt a student online but not in your handouts, you can use the \verb!prompt! command. Prompts display on the web but do not display when the document class is called with a \verb!handout! class key. This allows you to demand certain formats for answers that will be checked online, while leaving more freedom for the answer format in person. The prompt command does nothing online.
-
-\begin{verbatim}
-\begin{question}
-Find an equation for a line that has slope 5 and passes through the point (4, 6). 
-\begin{prompt} 
-  $y = \answer{5x - 14}$.
-\end{prompt} 
-\end{question}
-\end{verbatim}
-
-Produces:
-
-\begin{question}
-Find an equation for a line that has slope 5 and passes through the point (4, 6). 
-\begin{prompt} 
-  $y = \answer{5x - 14}$.
-\end{prompt} 
-\end{question}
-
-\end{example}
-
-\section{Dialogue} \label{Dialogue}
-
-\begin{example} If you would like to display a dialogue between two fictional excited students, use the \verb!dialogue! environment and optional arguments on the items. 
-
-\begin{verbatim}
-\begin{dialogue}
-  \item[Nathan] I think we should use the quadratic formula. What do you think?
-  \item[Hans] I hate using the quadratic formula. It doesn't generalize to degree 5, which bothers me. Could we do something else?
-\end{dialogue}
-\end{verbatim}
-
-Produces:
-
-\begin{dialogue}
-  \item[Nathan] I think we should use the quadratic formula. What do you think?
-  \item[Hans] I hate using the quadratic formula. It doesn't generalize to degree 5, which bothers me. Could we do something else?
-\end{dialogue}
-\end{example}
-
-
 \section{Theorems} \label{TheoremEnvironments}
 
 \begin{example} Structural statements that build up topics like ``Theorem'' appear in green, and are numbered both online and in print. These include Theorem, Axiom, Conjecture, Corollary, Proposition, Lemma, Claim, Condition, Idea, Definition, Conclusion, and Summary.
@@ -610,6 +462,158 @@ Produces:
 ??
 
 \end{example}
+
+
+\section{Code} \label{CodeAnswers}
+
+\begin{example}
+If you are displaying computer code to the student, you can use the \verb!code! or \verb!python! environments.
+
+\begin{verbatim}
+\begin{code}
+This is in code environment.
+    This is indented on the second line.
+
+This is on the fourth line.
+\end{code}
+\end{verbatim}
+
+Produces:
+
+\begin{code}
+This is in code environment.
+    This is indented on the second line.
+
+This is on the fourth line.
+\end{code}
+\end{example}
+
+\begin{example}
+If you are asking your students to write python code, for example trying to get them to type \verb!|return x**2!, you can use the \verb!python! environment and some validation functions.
+
+\begin{verbatim}
+\begin{question}
+Model the function $f(x) = x^2$ as a python function. Try using \verb|return x**2|
+\begin{python}
+  def f(x):
+  return #your code here
+
+  def validator():
+  return (f(4) == 16) and (f(-5) == 25)
+\end{python}
+\end{question}
+\end{verbatim}
+
+Produces:
+
+\begin{question}
+Model the function $f(x) = x^2$ as a python function. Try using \verb|return x**2|
+\begin{python}
+  def f(x):
+  return #your code here
+
+  def validator():
+  return (f(4) == 16) and (f(-5) == 25)
+\end{python}
+\end{question}
+\end{example}
+
+
+
+
+\section{Free-Response Answer Type} \label{FRAnswerType}
+
+\begin{example}The free response environment gives students access to a \LaTeX\ editor. 
+
+\begin{verbatim}
+\begin{question}
+  Tell us a little about yourself!
+  \begin{freeResponse}
+      My name is Professor X. I am 42 years old, originally from Columbus, OH. The most recent 
+      math I learned was functional analysis, three years ago. My favorite ice cream is Superman. 
+      My favorite function is $f(x) = e^{-x^2}$.
+  \end{freeResponse}
+\end{question}
+\end{verbatim}
+
+Produces:
+
+\begin{question}
+  Tell us a little about yourself!
+  \begin{freeResponse}
+      My name is Professor X. I am 42 years old, originally from Columbus, OH. The most recent 
+      math I learned was functional analysis, three years ago. My favorite ice cream is Superman. 
+      My favorite function is $f(x) = e^{-x^2}.$
+  \end{freeResponse}
+\end{question}
+
+\begin{remark}
+Clicking on \verb!View model solution! shows the user
+whatever you typed in the  \verb!freeResponse! environment.
+\end{remark}
+\end{example}
+
+\section{Miscellaneous Structure} \label{StructuralEnvironments}
+
+\begin{example}
+The \verb!example! and \verb!explanation! environments serve as containers with nice labels. 
+
+\begin{verbatim}
+\begin{example}
+The functions $f(x) = \frac{x}{1+x^3}$ and $g(x) = 0$ bound a region in the first quadrant that has finite area, but has no center of mass. 
+\end{example}
+\end{verbatim}
+
+Produces:
+\begin{example}
+The functions $f(x) = \frac{x}{1+x^3}$ and $g(x) = 0$ bound a region in the first quadrant that has finite area, but has no center of mass. 
+\end{example}
+\end{example}
+
+\section{Prompt} \label{Prompts}
+
+\begin{example} If you would like to prompt a student online but not in your handouts, you can use the \verb!prompt! command. Prompts display on the web but do not display when the document class is called with a \verb!handout! class key. This allows you to demand certain formats for answers that will be checked online, while leaving more freedom for the answer format in person. The prompt command does nothing online.
+
+\begin{verbatim}
+\begin{question}
+Find an equation for a line that has slope 5 and passes through the point (4, 6). 
+\begin{prompt} 
+  $y = \answer{5x - 14}$.
+\end{prompt} 
+\end{question}
+\end{verbatim}
+
+Produces:
+
+\begin{question}
+Find an equation for a line that has slope 5 and passes through the point (4, 6). 
+\begin{prompt} 
+  $y = \answer{5x - 14}$.
+\end{prompt} 
+\end{question}
+
+\end{example}
+
+\section{Dialogue} \label{Dialogue}
+
+\begin{example} If you would like to display a dialogue between two fictional excited students, use the \verb!dialogue! environment and optional arguments on the items. 
+
+\begin{verbatim}
+\begin{dialogue}
+  \item[Nathan] I think we should use the quadratic formula. What do you think?
+  \item[Hans] I hate using the quadratic formula. It doesn't generalize to degree 5, which bothers me. Could we do something else?
+\end{dialogue}
+\end{verbatim}
+
+Produces:
+
+\begin{dialogue}
+  \item[Nathan] I think we should use the quadratic formula. What do you think?
+  \item[Hans] I hate using the quadratic formula. It doesn't generalize to degree 5, which bothers me. Could we do something else?
+\end{dialogue}
+\end{example}
+
+
 
 \section{Metadata} \label{Metadata}
 
