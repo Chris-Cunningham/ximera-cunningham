@@ -51,6 +51,16 @@
     \item \textbackslash example
     \item \textbackslash explanation
   \end{itemize}
+\item \hyperref[Dialogue]{Dialogues}
+  \begin{itemize}
+    \item begin \{dialogue\} ... end\{dialogue\}
+  \end{itemize}
+\item \hyperref[TheoremEnvironments]{Theorem Environments}
+  \begin{itemize}
+    \item Theorem, Axiom, Conjecture, Corollary, Proposition, Lemma, Claim, Condition, Idea, Definition, Conclusion, Summary
+    \item Example, Observation, Fact, Remark, Algorithm, Notation, Criterion
+    \item Warning, Paradox
+  \end{itemize}
 \end{itemize}
 
 \end{remark}
@@ -381,43 +391,91 @@ The functions $f(x) = \frac{x}{1+x^3}$ and $g(x) = 0$ bound a region in the firs
 \begin{example} If you would like to prompt a student online but not in your handouts, you can use the \verb!prompt! command. Prompts display on the web but do not display when the document class is called with a \verb!handout! class key. This allows you to demand certain formats for answers that will be checked online, while leaving more freedom for the answer format in person. The prompt command does nothing online.
 
 \begin{verbatim}
+\begin{question}
 Find an equation for a line that has slope 5 and passes through the point (4, 6). 
-
-\begin{prompt} $y = \answer{5x - 14}$.\end{prompt} 
+\begin{prompt} 
+  $y = \answer{5x - 14}$.
+\end{prompt} 
+\end{question}
 \end{verbatim}
 
 Produces:
 
+\begin{question}
 Find an equation for a line that has slope 5 and passes through the point (4, 6). 
-
-\begin{prompt} $y = \answer{5x - 14}$.\end{prompt} 
+\begin{prompt} 
+  $y = \answer{5x - 14}$.
+\end{prompt} 
+\end{question}
 
 \end{example}
 
+\section{Dialogue} \label{Dialogue}
 
+\begin{example} If you would like to display a dialogue between two fictional excited students, use the \verb!dialogue! environment and optional arguments on the items. 
 
-\section{Dialogue}
+\begin{verbatim}
+\begin{dialogue}
+  \item[Nathan] I think we should use the quadratic formula. What do you think?
+  \item[Hans] I hate using the quadratic formula. It doesn't generalize to degree 5, which bothers me. Could we do something else?
+\end{dialogue}
+\end{verbatim}
 
-Dialogue is working as intended:
+Produces:
 
 \begin{dialogue}
-\item[Nathan] What is this?
-\item[Hans] This is for showing a conversation.
+  \item[Nathan] I think we should use the quadratic formula. What do you think?
+  \item[Hans] I hate using the quadratic formula. It doesn't generalize to degree 5, which bothers me. Could we do something else?
 \end{dialogue}
+\end{example}
 
-\section{Theorems}
 
-\begin{theorem}
-What is this? (there are other theorems)
+\section{Theorems} \label{TheoremEnvironments}
+
+\begin{example} Structural statements that build up topics like ``Theorem'' appear in green, and are numbered both online and in print. These include Theorem, Axiom, Conjecture, Corollary, Proposition, Lemma, Claim, Condition, Idea, Definition, Conclusion, and Summary.
+
+\begin{verbatim}
+\begin{theorem} 
+  Every cubic polynomial has a real root. 
 \end{theorem}
+\end{verbatim}
 
-Maybe we want to list the other theorems?
-=======
-\begin{lemma}
-This is a lemma.
-\end{lemma}
+Produces:
 
+\begin{theorem} 
+  Every cubic polynomial has a real root. 
+\end{theorem}
+\end{example}
 
+\begin{example} Remarks and observations like ``example'' appear in yellow, and are numbered both online and in print. In particular, sub-examples like the one below will be renumbered. The supported environments are: Example, Observation, Fact, Remark, Algorithm, Notation, and Criterion.
+
+\begin{verbatim}
+\begin{example}
+  This example has a sub-numbering system since it is inside another example.
+\end{example}
+\end{verbatim}
+
+Produces:
+
+\begin{example}
+  This example has a sub-numbering system since it is inside another example.
+\end{example}
+\end{example}
+
+\begin{example} Warnings appear in red and are numbered online and in print. These include Warning and Paradox.
+
+\begin{verbatim}
+\begin{paradox}
+  To walk one mile, you must first walk one-half mile, then one-quarter mile, then one-eighth mile, then one-sixteenth mile, and so on forever. This means you must complete infinitely many tasks to finish walking one mile. How can you possibly do this in a finite amount of time?
+\end{paradox}
+\end{verbatim}
+
+Produces:
+
+\begin{paradox}
+  To walk one mile, you must first walk one-half mile, then one-quarter mile, then one-eighth mile, then one-sixteenth mile, and so on forever. This means you must complete infinitely many tasks to finish walking one mile. How can you possibly do this in a finite amount of time?
+\end{paradox}
+\end{example}
 
 \section{Linking}
 
