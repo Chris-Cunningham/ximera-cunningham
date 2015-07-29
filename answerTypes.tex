@@ -17,16 +17,16 @@
 \begin{itemize}
 \item \hyperref[BasicAnswerType]{Basic Answer Types}
   \begin{itemize}
-    \item answer
+    \item (broken in print) answer
     \item (not documented) answer[given]
     \item answer[tolerance=]
-    \item (broken in print, online) \textbackslash matrixAnswer  
+    \item (ugly in print, broken online) \textbackslash matrixAnswer  
   \end{itemize}
 \item \hyperref[MCAnswerType]{Multiple Choice Answer Types}
   \begin{itemize}
     \item begin\{multipleChoice\} ... end\{multipleChoice\}
-    \item begin\{selectAll\} ... end\{selectAll\}
-    \item (broken in print, online) \textbackslash wordChoice
+    \item (broken online) begin\{selectAll\} ... end\{selectAll\}
+    \item (ugly in print, broken online) \textbackslash wordChoice
   \end{itemize}    
 \item \hyperref[FRAnswerType]{Free Response}
   \begin{itemize}   
@@ -34,8 +34,8 @@
   \end{itemize}
 \item \hyperref[CodeAnswers]{Code Blocks}
   \begin{itemize}
-    \item (broken online) begin\{code\} ... end\{code\}
-    \item (broken in print, online) begin\{python\} ... end\{python\}
+    \item (ugly online) begin\{code\} ... end\{code\}
+    \item (broken in print, broken online) begin\{python\} ... end\{python\}
   \end{itemize}
 \item \hyperref[ProblemContainers]{Problems, Exercises, and Hints}
   \begin{itemize}
@@ -44,9 +44,9 @@
     \item begin\{exercise\} ... end\{exercise\}
     \item begin\{exploration\} ... end\{exploration\}
     \item begin\{xarmaBoost\} ... end\{xarmaBoost\}
-    \item (broken in print, online) begin\{shuffle\} ... end\{shuffle\}
-    \item begin\{feedback\} ... end\{feedback\}
-    \item hint
+    \item (broken in print) begin\{shuffle\} ... end\{shuffle\}
+    \item (broken online) begin\{feedback\} ... end\{feedback\}
+    \item begin\{hint\} ... end\{hint\}
   \end{itemize}
 \item \hyperref[StructuralEnvironments]{Structure}
   \begin{itemize}
@@ -66,12 +66,13 @@
 \item \hyperref[EmbeddedContent]{Embedded Content}
   \begin{itemize}
     \item link
-    \item (broken in print) youtube
-    \item (broken in print) geogebra
+    \item youtube
+    \item geogebra
+    \item (broken in print, broken online) html
   \end{itemize}
 \item \hyperref[Metadata]{Metadata}
   \begin{itemize}
-    \item (broken in print) outcome
+    \item (broken in print, broken online) outcome
   \end{itemize}
 
 \end{itemize}
@@ -178,7 +179,7 @@ Enter the matrix  \(\begin{bmatrix} x & y \\ xy & z+1 \end{bmatrix}\)
 \section{Multiple Choice Answer Type} \label{MCAnswerType}
 
 \begin{example}
-Multiple-choice questions need one or more of their answers to be labeled as correct. By default, the options always appear in the same order.
+Multiple-choice questions need one or more of their answers to be labeled as \verb!correct!. By default, the options always appear in the same order.
 
 \begin{verbatim}
 \begin{question}
@@ -203,7 +204,7 @@ Produces:
 \end{question}
 
 \begin{remark}
-If you mark more than one choice as correct, then more than one of the possible answers will count as correct. If you instead expect students to select more than one choice, you should use the \verb!selectAll! environment.
+If you mark more than one choice as \verb!correct!, then students will be asked to find \emph{one} of the correct answers. If you instead expect students to select \emph{all} correct choices, use the \verb!selectAll! environment below.
 \end{remark}
 
 \end{example}
@@ -342,7 +343,7 @@ Model the function $f(x) = x^2$ as a python function. Try using \verb|return x**
 \section{Problem Containers} \label{ProblemContainers}
 
 \begin{example}
-The environments \verb!problem!, \verb!question!, \verb!exercise!, \verb!exploration!, and \verb!xarmaBoost! are intended to contain various answer types inside. Most of the above examples involve question or problem environments. Nesting these environments will cause a series of questions to appear, requiring you to answer the first before answering the second.
+The environments \verb!problem!, \verb!question!, \verb!exercise!, \verb!exploration!, and \verb!xarmaBoost! are intended to contain various answer types inside. Nesting these environments will cause a series of questions to appear, requiring you to answer the first before answering the second. The following code displays nested problems.
 
 \begin{verbatim}
 \begin{question}
@@ -380,7 +381,8 @@ $x = \answer{1}$. \end{question}
 \end{shuffle}
 \end{verbatim}
 
-Produces:
+Produces something different every time (you should see one of the three questions below):
+
 \begin{shuffle}
 \begin{question} Find the x-coordinate of the vertex of the parabola $y = x^2 - 6x + 4$. 
 $x = \answer{3}$. \end{question}
@@ -410,6 +412,35 @@ Produces:
 \begin{feedback}
 The easiest way to accomplish this is to move the function $y=x^2$ to the right by $3$ and down by $4$.
 \end{feedback}
+\end{question}
+
+\end{example}
+
+\begin{example} 
+Hints are implemented with the \verb!hint! environment, inside a \verb!question!, \verb!problem! or \verb!exercise!  environment. Online the hints are hidden behind a ``Show Hint'' button. In print, the hint is displayed below the question.
+
+\begin{verbatim}
+\begin{question}
+  Solve for $x$: $x^2 = 25$. 
+  \begin{prompt} 
+    How many solutions did you get? $\answer{2}$ 
+  \end{prompt}
+  \begin{hint} 
+    Did you forget $\pm$?
+  \end{hint}
+\end{question}
+\end{verbatim}
+
+Produces:
+
+\begin{question}
+  Solve for $x$: $x^2 = 25$. 
+  \begin{prompt} 
+    How many solutions did you get? $\answer{2}$ 
+  \end{prompt}
+  \begin{hint} 
+    Did you forget $\pm$?
+  \end{hint}
 \end{question}
 
 \end{example}
@@ -532,7 +563,7 @@ For more information, look at \link[a Cheese Catalog]{http://www.cheese.com}
 
 Produces:
 
-\link[A Cheese Catalog]{http://www.cheese.com}
+For more information, look at \link[a Cheese Catalog]{http://www.cheese.com}
 \end{example}
 
 \begin{example} Youtube videos can be embedded using just their code (rather than the entire URL) using the \verb!youtube! command.
@@ -543,9 +574,7 @@ Produces:
 
 Produces:
 
-\begin{verbatim}
 \youtube{dQw4w9WgXcQ}
-\end{verbatim}
 \end{example}
 
 \begin{example} GeoGebra worksheets hosted at GeoGebra Tube can be embedded in the same way, using the \verb!geogebra! command. The \verb!geogebra! command takes three arguments: the ID of the worksheet, the width in pixels, and the heightin pixels. In print, this command only displays a link to the geogebra worksheet.
@@ -561,6 +590,20 @@ Produces:
 \begin{remark} 
   Currently, all optional arguments to the embedded Geogebra worksheet (like Show Menubar) default to false.
 \end{remark}
+
+\end{example}
+
+\begin{example} If you have some HTML content that simply should not do anything in print, and you really want to include it, you can use the \verb!HTML! environment. 
+
+\begin{verbatim}
+\begin{html}
+    <blink>Blinking text</blink> 
+\end{html}
+\end{verbatim}
+
+Produces: 
+
+??
 
 \end{example}
 
