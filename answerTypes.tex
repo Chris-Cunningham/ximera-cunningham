@@ -1,4 +1,7 @@
+
 \documentclass{ximera}
+
+
 \title{Question and answer types}
 \begin{document}
 
@@ -10,32 +13,31 @@
 
 \section{Currently-Supported Environments and Commands (2015-07-28)}
 
-\begin{example}
-This is an example!
+\begin{exploration} Table of Contents
 
 \begin{itemize}
-\item Basic Answer Types
+\item \hyperref[BasicAnswerType]{Basic Answer Types}
   \begin{itemize}
     \item \textbackslash answer
     \item (not documented) \textbackslash answer[given]
     \item \textbackslash answer[tolerance=]
     \item (broken) \textbackslash matrixAnswer  
   \end{itemize}
-\item Multiple Choice Answer Types
+\item \hyperref[MCAnswerType]{Multiple Choice Answer Types}
   \begin{itemize}
     \item begin\{multipleChoice\} ... end\{multipleChoice\}
     \item (broken) \textbackslash wordChoice
   \end{itemize}    
-\item Free Response Answers
+\item \hyperref[FRAnswerType]{Free Response}
   \begin{itemize}   
     \item (broken) begin\{freeResponse\} ... end\{freeResponse\}
   \end{itemize}
-\item Code Blocks
+\item \hyperref[CodeAnswers]{Code Blocks}
   \begin{itemize}
     \item (broken) begin\{code\} ... end\{code\}
     \item (broken) begin\{python\} ... end\{python\}
   \end{itemize}
-\item Problems and Exercises
+\item \hyperref[ProblemContainers]{Problems and Exercises}
   \begin{itemize}
     \item begin\{problem\} ... end\{problem\}
     \item begin\{question\} ... end\{question\}
@@ -45,10 +47,13 @@ This is an example!
   \end{itemize}
 \end{itemize}
 
-\end{example}
+\end{exploration}
 
-\section{Basic Answer Type}
 
+\section{Basic Answer Types}  
+\label{BasicAnswerType}
+
+\begin{example}
 The following code produces a basic answer. In print, this displays the correct answer in an answer box. Online, this displays a blank space for the student to fill in the answer. 
 
 \begin{verbatim}
@@ -62,7 +67,9 @@ Produces:
 \begin{question}
 $3\times 2 = \answer{6}$
 \end{question}
+\end{example}
 
+\begin{example}
 In addition to numerical answers, we also support elementary functions.
 
 \begin{verbatim}
@@ -77,6 +84,7 @@ Produces:
   $\frac{\partial}{\partial x} x^2\sin(y) = \answer{2xsin(y)}$
 \end{question}
 
+
 \begin{remark}
 Under the hood, Ximera is parsing the user input, producing a
 function, and checking the user input function against ``answer'' at
@@ -84,8 +92,10 @@ $100$ different complex numbers, and seeing if the results are
 ``reasonably'' close to each other.  We compare the complex extensions
 of these functions to circumvent domain issues.
 \end{remark}
+\end{example}
 
-If you would like to allow more tolerance, you can use the \verb!tolerance! option. 
+
+\begin{example} If you would like to allow more tolerance, you can use the \verb!tolerance! option. 
 
 \begin{warning}
 Setting the tolerance to 0 will force exact comparison of floating-point numbers, which will likely cause unexpected problems. This is strongly discouraged. 
@@ -108,8 +118,10 @@ Produces:
 \begin{question}
   Write a number that is within 5 of 8: $\answer[tolerance=5]{8}$
 \end{question}
+\end{example}
 
-We also support matrices of expressions in answers.
+
+\begin{example} We also support matrices of expressions in answers.
 
 \begin{verbatim}
 \begin{question}
@@ -132,10 +144,11 @@ Enter the matrix  \(\begin{bmatrix} x & y \\ xy & z+1 \end{bmatrix}\)
 \begin{remark}
   The plus and minus buttons add and subtract columns or rows.  
 \end{remark}
+\end{example}
 
+\section{Multiple Choice Answer Type} \label{MCAnswerType}
 
-\section{Multiple Choice Answer Type}
-
+\begin{example}
 Multiple-choice questions need one or more of their answers to be labeled as correct. By default, the options always appear in the same order.
 
 \begin{verbatim}
@@ -159,8 +172,9 @@ Produces:
     \choice{$y=3x+1$}
   \end{multipleChoice}
 \end{question}
+\end{example}
 
-
+\begin{example}
 If you would like the multiple-choice question to occur in-line instead of taking up space, you can use the inline command \verb!wordChoice!.
  
 \begin{verbatim}
@@ -175,10 +189,11 @@ Produces:
   When comparing the functions $f(x) = x^2$ and $g(x) = 2^x$, \wordChoice{\choice{$f(x)$} \choice[correct]{$g(x)$}} grows more quickly for large $x$.
   \emph{broken as of 7/28/2015:} the web does not understand wordChoice yet at all.
 \end{question}
+\end{example}
 
-\section{Free-Response Answer Type}
+\section{Free-Response Answer Type} \label{FRAnswerType}
 
-The free response environment gives students access to a \LaTeX\ editor. 
+\begin{example}The free response environment gives students access to a \LaTeX\ editor. 
 
 \begin{verbatim}
 \begin{question}
@@ -206,9 +221,9 @@ Produces:
 Clicking on \verb!View model solution! shows the user
 whatever you typed in the  \verb!freeResponse! environment.
 \end{remark}
+\end{example}
 
-
-\section{Code}
+\section{Code} \label{CodeAnswers}
 
 If you are displaying computer code to the student, you can use the \verb!code! or \verb!python! environments.
 
@@ -260,7 +275,7 @@ Model the function $f(x) = x^2$ as a python function. Try using \verb|return x**
 
 
 
-\section{Problem Containers}
+\section{Problem Containers} \label{ProblemContainers}
 
 The environments \verb!problem!, \verb!question!, \verb!exercise!, \verb!exploration!, and \verb!xarmaBoost! are intended to contain various answer types inside. Most of the above examples involve question or problem environments. Nesting these environments will cause a series of questions to appear, requiring you to answer the first before answering the second.
 
@@ -287,6 +302,7 @@ The original intent of xarmaBoost was to label questions that were unlikely to b
 \end{remark}
 
 \section{Structure}
+
 
 
 \verb!example!, \verb!explanation!
