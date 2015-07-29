@@ -25,6 +25,7 @@
 \item \hyperref[MCAnswerType]{Multiple Choice Answer Types}
   \begin{itemize}
     \item begin\{multipleChoice\} ... end\{multipleChoice\}
+    \item begin\{selectAll\} ... end\{selectAll\}
     \item (broken) \textbackslash wordChoice
   \end{itemize}    
 \item \hyperref[FRAnswerType]{Free Response}
@@ -61,6 +62,17 @@
     \item Example, Observation, Fact, Remark, Algorithm, Notation, Criterion
     \item Warning, Paradox
   \end{itemize}
+\item \hyperref[EmbeddedContent]{Embedded Content}
+  \begin{itemize}
+    \item link
+    \item (to fix today) youtube
+    \item (to fix today) geogebra
+  \end{itemize}
+\item \hyperref[Metadata]{Metadata}
+  \begin{itemize}
+    \item (broken) outcome
+  \end{itemize}
+
 \end{itemize}
 
 \end{remark}
@@ -188,6 +200,38 @@ Produces:
     \choice{$y=3x+1$}
   \end{multipleChoice}
 \end{question}
+
+\begin{remark}
+If you mark more than one choice as correct, then more than one of the possible answers will count as correct. If you instead expect students to select more than one choice, you should use the \verb!selectAll! environment.
+\end{remark}
+
+\end{example}
+
+\begin{example}
+To allow students to choose more than one option in a multiple choice question, we use the \verb!selectAll! environment. The syntax is identical to the \verb!multipleChoice! environment.
+
+\begin{verbatim}
+\begin{question}
+Select all the functions below that have a graph which is a parabola.
+  \begin{selectAll}
+    \choice[correct]{$y=x^2+3x-3$}
+    \choice{$y = \frac{1}{x+2}$}
+    \choice[correct]{$y=3x^2+1$}
+  \end{selectAll}
+\end{question}
+\end{verbatim}
+
+Produces:
+
+\begin{question}
+Select all the functions below that have a graph which is a parabola.
+  \begin{selectAll}
+    \choice[correct]{$y=x^2+3x-3$}
+    \choice{$y = \frac{1}{x+2}$}
+    \choice[correct]{$y=3x^2+1$}
+  \end{selectAll}
+\end{question}
+
 \end{example}
 
 \begin{example}
@@ -477,28 +521,59 @@ Produces:
 \end{paradox}
 \end{example}
 
-\section{Linking}
+\section{Embedded Content} \label{EmbeddedContent}
 
-video, youtube don't work in html
-link{with a link here} works
-link{} links back to same page online, how does this work?
+\begin{example} A simple HTML link uses the \verb!link! command. In print, the URL is displayed in a footnote.
 
-\video{https://www.youtube.com/watch?v=dQw4w9WgXcQ} %doesn't work in html
-\youtube{https://www.youtube.com/watch?v=dQw4w9WgXcQ} %doesn't work in html
-\link[Something Else]{https://www.youtube.com/watch?v=dQw4w9WgXcQ} %works
-\link{} %links to same page online, does nothing in pdf
+\begin{verbatim}
+For more information, look at \link[a Cheese Catalog]{http://www.cheese.com}
+\end{verbatim}
 
+Produces:
 
+\link[A Cheese Catalog]{http://www.cheese.com}
+\end{example}
 
-\section{Metadata}
+\begin{example} Youtube videos can be embedded using just their code (rather than the entire URL) using the \verb!youtube! command.
 
-There is some metadata here. (prerequisites, outcomes to be figured out later)
+\begin{verbatim}
+\youtube{dQw4w9WgXcQ}
+\end{verbatim}
 
-\prerequisites{This is a prerequisite} %metadata
+Produces:
 
-\outcome{This is an outcome.} %metadata
+\begin{verbatim}
+\youtube{dQw4w9WgXcQ}
+\end{verbatim}
+\end{example}
 
+\begin{example} GeoGebra worksheets hosted at GeoGebra Tube can be embedded in the same way, using the \verb!geogebra! command. The \verb!geogebra! command takes three arguments: the ID of the worksheet, the width in pixels, and the heightin pixels. In print, this command only displays a link to the geogebra worksheet.
 
+\begin{verbatim}
+\geogebra{222093}{711}{697}
+\end{verbatim}
 
+Produces: 
+
+\geogebra{222093}{711}{697}
+
+\begin{remark} 
+  Currently, all optional arguments to the embedded Geogebra worksheet (like Show Menubar) default to false.
+\end{remark}
+
+\end{example}
+
+\section{Metadata} \label{Metadata}
+
+\begin{example} To include course outcomes in your questions, use the outcome command. In print, the outcomes will be placed in a footnote.
+
+\begin{verbatim}
+\outcome{Students should continue developing abstract thinking.}
+\end{verbatim}
+
+Produces:
+
+\outcome{Students should continue developing abstract thinking.}
+\end{example}
 
 \end{document}
