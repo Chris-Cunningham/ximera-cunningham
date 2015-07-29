@@ -42,3 +42,12 @@ Icon
 *.pdf
 *.log
 *.pdf
+*.4ct
+*.4tc
+*.dvi
+*.xref
+*.tmp
+*.idv
+RefLabel.css
+*.lg
+RefLabel.html
