@@ -43,12 +43,15 @@
     \item begin\{exercise\} ... end\{exercise\}
     \item begin\{exploration\} ... end\{exploration\}
     \item begin\{xarmaBoost\} ... end\{xarmaBoost\}
+    \item (broken) begin\{shuffle\} ... end\{shuffle\}
   \end{itemize}
 \item \hyperref[StructuralEnvironments]{Structure}
   \begin{itemize}
     \item \textbackslash example
     \item \textbackslash explanation
   \end{itemize}
+
+\item 
 
 \end{itemize}
 
@@ -311,6 +314,32 @@ The original intent of xarmaBoost was to label questions that were unlikely to b
 \end{remark}
 \end{example}
 
+\begin{example} The \verb!shuffle! environment contains several possible questions; then each student is given one randomly chosen question from the list.
+
+\begin{verbatim}
+\begin{shuffle}
+\begin{question} Find the x-coordinate of the vertex of the parabola $y = x^2 - 6x + 4$. 
+$x = \answer{3}$. \end{question}
+\begin{question} Find the x-coordinate of the vertex of the parabola $y = x^2 - 8x + 4$. 
+$x = \answer{4}$. \end{question}
+\begin{question} Find the x-coordinate of the vertex of the parabola $y = x^2 - 2x + 4$. 
+$x = \answer{1}$. \end{question}
+\end{shuffle}
+\end{verbatim}
+
+Produces:
+\begin{shuffle}
+\begin{question} Find the x-coordinate of the vertex of the parabola $y = x^2 - 6x + 4$. 
+$x = \answer{3}$. \end{question}
+\begin{question} Find the x-coordinate of the vertex of the parabola $y = x^2 - 8x + 4$. 
+$x = \answer{4}$. \end{question}
+\begin{question} Find the x-coordinate of the vertex of the parabola $y = x^2 - 2x + 4$. 
+$x = \answer{1}$. \end{question}
+\end{shuffle}
+
+\end{example}
+
+
 \section{Structure} \label{StructuralEnvironments}
 
 \begin{example}
@@ -343,37 +372,6 @@ Produces:
 Find an equation for a line that has slope 5 and passes through the point (4, 6). 
 
 \begin{prompt} $y = \answer{5x - 14}$.\end{prompt} 
-
-\end{example}
-
-\section{Shuffle}
-
-\begin{example} The \verb!shuffle! environment contains several possible questions. Each student will be given one of the questions from the list.
-
-\begin{verbatim}
-\begin{shuffle}
-\begin{question} Find the x-coordinate of the vertex of the parabola $y = x^2 - 6x + 4$. 
-$x = \answer{3}$. \end{question}
-
-\begin{question} Find the x-coordinate of the vertex of the parabola $y = x^2 - 8x + 4$. 
-$x = \answer{4}$. \end{question}
-
-\begin{question} Find the x-coordinate of the vertex of the parabola $y = x^2 - 2x + 4$. 
-$x = \answer{1}$. \end{question}
-\end{shuffle}
-\end{verbatim}
-
-Produces:
-\begin{shuffle}
-\begin{question} Find the x-coordinate of the vertex of the parabola $y = x^2 - 6x + 4$. 
-$x = \answer{3}$. \end{question}
-
-\begin{question} Find the x-coordinate of the vertex of the parabola $y = x^2 - 8x + 4$. 
-$x = \answer{4}$. \end{question}
-
-\begin{question} Find the x-coordinate of the vertex of the parabola $y = x^2 - 2x + 4$. 
-$x = \answer{1}$. \end{question}
-\end{shuffle}
 
 \end{example}
 
