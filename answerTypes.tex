@@ -44,15 +44,13 @@
     \item begin\{exploration\} ... end\{exploration\}
     \item begin\{xarmaBoost\} ... end\{xarmaBoost\}
     \item (broken) begin\{shuffle\} ... end\{shuffle\}
+    \item begin\{feedback\} ... end\{feedback\}
   \end{itemize}
 \item \hyperref[StructuralEnvironments]{Structure}
   \begin{itemize}
     \item \textbackslash example
     \item \textbackslash explanation
   \end{itemize}
-
-\item 
-
 \end{itemize}
 
 \end{remark}
@@ -339,6 +337,27 @@ $x = \answer{1}$. \end{question}
 
 \end{example}
 
+\begin{example} The \verb!feedback! environment gives the student information after they enter an answer. Later, we expect to be able to tailor feedback to the student's answer.
+
+\begin{verbatim}
+\begin{question} Find a second-degree polynomial with leading coefficient $1$ that has a local minimum at $(3, -4)$.
+$\begin{prompt} y = \answer{x^2 - 6x + 5} \end{prompt}$
+\begin{feedback}
+The easiest way to accomplish this is to move the function $y=x^2$ to the right by $3$ and down by $4$.
+\end{feedback}
+\end{question}
+\end{verbatim}
+
+Produces:
+
+\begin{question} Find a second-degree polynomial with leading coefficient $1$ that has a local minimum at $(3, -4)$.
+$\begin{prompt} y = \answer{x^2 - 6x + 5} \end{prompt}$
+\begin{feedback}
+The easiest way to accomplish this is to move the function $y=x^2$ to the right by $3$ and down by $4$.
+\end{feedback}
+\end{question}
+
+\end{example}
 
 \section{Structure} \label{StructuralEnvironments}
 
@@ -375,13 +394,7 @@ Find an equation for a line that has slope 5 and passes through the point (4, 6)
 
 \end{example}
 
-\section{Feedback}
 
-We need to figure out what the feedback environment does.
-
-\begin{feedback}
-What is this?
-\end{feedback}
 
 \section{Dialogue}
 
@@ -428,8 +441,6 @@ There is some metadata here. (prerequisites, outcomes to be figured out later)
 \outcome{This is an outcome.} %metadata
 
 
-
-\section{Problem Types}
 
 
 \end{document}
