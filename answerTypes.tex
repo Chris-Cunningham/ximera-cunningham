@@ -26,7 +26,7 @@
   \begin{itemize}
     \item begin\{multipleChoice\} ... end\{multipleChoice\}
     \item (broken online) begin\{selectAll\} ... end\{selectAll\}
-    \item (ugly in print, broken online) \textbackslash wordChoice
+    \item (broken online) \textbackslash wordChoice
   \end{itemize}    
 \item \hyperref[FRAnswerType]{Free Response}
   \begin{itemize}   
@@ -52,6 +52,10 @@
   \begin{itemize}
     \item example
     \item explanation
+  \end{itemize}
+\item \hyperref[Prompt]{Prompts}
+  \begin{itemize}
+    \item begin\{prompt\} ... end \{prompt\}
   \end{itemize}
 \item \hyperref[Dialogue]{Dialogues}
   \begin{itemize}
@@ -417,7 +421,7 @@ The easiest way to accomplish this is to move the function $y=x^2$ to the right 
 \end{example}
 
 \begin{example} 
-Hints are implemented with the \verb!hint! environment, inside a \verb!question!, \verb!problem! or \verb!exercise!  environment. Online the hints are hidden behind a ``Show Hint'' button. In print, the hint is displayed below the question.
+Hints are implemented with the \verb!hint! environment, inside a \verb!question!, \verb!problem! or \verb!exercise!  environment. Online the hints are hidden behind a ``Reveal Hint'' button. In print, the hint is displayed below the question.
 
 \begin{verbatim}
 \begin{question}
@@ -558,12 +562,12 @@ Produces:
 \begin{example} A simple HTML link uses the \verb!link! command. In print, the URL is displayed in a footnote.
 
 \begin{verbatim}
-For more information, look at \link[a Cheese Catalog]{http://www.cheese.com}
+For more information, look at \link[a Cheese Catalog]{http://www.cheese.com}.
 \end{verbatim}
 
 Produces:
 
-For more information, look at \link[a Cheese Catalog]{http://www.cheese.com}
+For more information, look at \link[a Cheese Catalog]{http://www.cheese.com}.
 \end{example}
 
 \begin{example} Youtube videos can be embedded using just their code (rather than the entire URL) using the \verb!youtube! command.
@@ -577,7 +581,7 @@ Produces:
 \youtube{dQw4w9WgXcQ}
 \end{example}
 
-\begin{example} GeoGebra worksheets hosted at GeoGebra Tube can be embedded in the same way, using the \verb!geogebra! command. The \verb!geogebra! command takes three arguments: the ID of the worksheet, the width in pixels, and the heightin pixels. In print, this command only displays a link to the geogebra worksheet.
+\begin{example} GeoGebra worksheets hosted at GeoGebra Tube can be embedded in the same way, using the \verb!geogebra! command. The \verb!geogebra! command takes three arguments: the ID of the worksheet, the width in pixels, and the height in pixels. In print, this command only displays a link to the geogebra worksheet.
 
 \begin{verbatim}
 \geogebra{222093}{711}{697}
